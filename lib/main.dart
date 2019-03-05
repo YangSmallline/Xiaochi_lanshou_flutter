@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'pub_pack.dart';
-import 'package:lanshou/image.dart';
-import 'button_icons.dart';
-import 'input.dart';
-import 'project/MyApp2.dart';
+import 'project/web_url.dart';
+import 'project/net.dart';
+import 'project/container.dart';
+import 'project/longlist.dart';
+import 'project/form.dart';
+import 'project/appbar.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -21,7 +23,10 @@ class MyApp extends StatelessWidget {
         "list_page":(context)=>ListPage(),
         "english":(context)=>RandomWordsWidget(),
       },
-      home: InputFile(),
+      home:  MyAppBar()
+
+//        body: LongListWeight(items: new List<String>.generate(100, (i)=>"items $i")),
+
     );
   }
 }
