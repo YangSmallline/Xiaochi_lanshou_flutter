@@ -14,6 +14,15 @@ class _MyAppBarState extends State<MyAppBar> {
     Text("index 2 : 发现")
   ];
 
+  final List<Tab> _myTabs = [
+    Tab(
+      text: "选项卡1",
+      icon: Icon(Icons.account_box),
+    ),
+    Tab(text: "选项卡2", icon: Icon(Icons.directions_run)),
+    Tab(text: "选项卡3", icon: Icon(Icons.airline_seat_legroom_extra))
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,21 +43,30 @@ class _MyAppBarState extends State<MyAppBar> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.chat),title: Text("信息")),
-          BottomNavigationBarItem(icon: Icon(Icons.message),title: Text("通讯录")),
-          BottomNavigationBarItem(icon: Icon(Icons.fingerprint),title: Text("发现"))
+          BottomNavigationBarItem(icon: Icon(Icons.chat), title: Text("信息")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.message), title: Text("通讯录")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.fingerprint), title: Text("发现"))
         ],
+        onTap: _onItemTapped,
         currentIndex: _selectedIndex,
         fixedColor: Colors.deepPurple,
-        onTap: _onItemTapped,
       ),
-      body: _widgetOptions.elementAt(_selectedIndex),
+//      body: _widgetOptions.elementAt(_selectedIndex),
+      body: TabBarView(
+        children: <Widget>[
+          Tab(text: "选项卡1",),
+          Tab(text: "选项卡2",),
+          Tab(text: "选项卡3",)
+        ],
+      ),
     );
   }
 
   void _onItemTapped(int value) {
     setState(() {
-      _selectedIndex=value;
+      _selectedIndex = value;
     });
   }
 }
