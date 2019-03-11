@@ -46,9 +46,9 @@ class TabBarSample extends StatelessWidget {
 //选中的视图
 class SelectedView extends StatelessWidget {
 
-  SelectedView({Key key, this.item}) : super(key: key);
-
   final ItemView item;
+
+  SelectedView({Key key, this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
