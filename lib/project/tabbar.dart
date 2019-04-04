@@ -90,6 +90,5 @@ const List<ItemView> items = const <ItemView>[
 class ItemView {
   final String title;
   final IconData iconData;
-
   const ItemView({this.title, this.iconData});
 }

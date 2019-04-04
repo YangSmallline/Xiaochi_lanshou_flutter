@@ -7,28 +7,34 @@ import 'project/longlist.dart';
 import 'project/form.dart';
 import 'project/appbar.dart';
 import 'project/tabbar.dart';
-void main() => runApp(TabBarSample());
+import 'project/hero.dart';
+import 'project/anim.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      routes: {
-        "home_page":(context)=>Home(),
-        "second_page":(context)=>SecondPage(),
-        "list_page":(context)=>ListPage(),
-        "english":(context)=>RandomWordsWidget(),
-      },
-      home:  MyAppBar()
-
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        routes: {
+          "home_page": (context) => Home(),
+          "second_page": (context) => SecondPage(),
+          "list_page": (context) => ListPage(),
+          "english": (context) => RandomWordsWidget(),
+        },
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text("我是标题"),
+          ),
+          body: MyAppBar(),
+        )
 //        body: LongListWeight(items: new List<String>.generate(100, (i)=>"items $i")),
-
-    );
+        );
   }
 }
 
@@ -60,9 +66,11 @@ class Home extends StatelessWidget {
               color: Colors.redAccent,
             ),
           ),
-          FlatButton(onPressed: (){
-            Navigator.pushNamed(context, "second_page");
-          }, child: Text("跳转到second页面"))
+          FlatButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "second_page");
+              },
+              child: Text("跳转到second页面"))
         ],
       ),
     );
